@@ -3,7 +3,7 @@ import pandas as pd
 import joblib
 from flask_cors import CORS
 import numpy as np
-from Recommender import recommend
+from recommender import recommend
 from flask import Flask, jsonify, request
 app = Flask(__name__)
 CORS(app)  # Allow all origins for dev
