@@ -5,13 +5,14 @@ from flask_cors import CORS
 import numpy as np
 from recommender import recommend
 from flask import Flask, jsonify, request
+import ast
 app = Flask(__name__)
 CORS(app)  # Allow all origins for dev
 
 
 df = joblib.load("./Data/mvdata_f.pkl")
 
-
+df['cast'] = df['cast'].apply(lambda x: ast.literal_eval(x) if isinstance(x, str) else x)
 # Replace NaN with defaults
 df['poster'] = df['poster'].fillna("https://picsum.photos/400/600")   # default image
 df['imdb_rating'] = df['imdb_rating'].fillna(0)                        # default rating

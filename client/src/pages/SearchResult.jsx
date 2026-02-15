@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
+import NavBar from "../components/NavBar";
 const Search = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get("q");
@@ -24,6 +25,8 @@ const Search = () => {
   if (loading) return <p className="text-yellow-400 p-5">Loading...</p>;
 
   return (
+    <div>
+    <NavBar></NavBar>
     <div className="p-5">
       <h2 className="text-yellow-400 text-xl mb-4">
         Results for "{query}"
@@ -44,6 +47,7 @@ const Search = () => {
           ))}
         </div>
       )}
+    </div>
     </div>
   );
 };

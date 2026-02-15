@@ -38,6 +38,7 @@ const MovieDescPage = () => {
     };
     fetchRec();
   }, [id]);
+  console.log(typeof(movie.cast));
 
   return (
     <>
@@ -80,13 +81,13 @@ const MovieDescPage = () => {
 
             <p className="mt-6 text-sm sm:text-base">
               <span className="text-yellow-400 font-semibold">Cast: </span>
-              {movie.cast}
+              <p className="text-gray-300">{movie.cast?.join(", ")}</p>
             </p>
 
             {/* Released on — mobile */}
             <div className="mt-6 md:hidden">
               <span className="text-yellow-400 font-semibold">Released on</span>
-              <p className="text-white">{movie.year}</p>
+              <p className="text-gray-300">{movie.year}</p>
             </div>
           </div>
 
