@@ -13,7 +13,7 @@ const Search = () => {
   useEffect(() => {
     if (!query) return;
 
-    fetch(`API_BASE/search?query=${query}`)
+    fetch(`${API_BASE}/search?query=${query}`)
       .then((res) => res.json())
       .then((data) => {
         setMovies(data);
